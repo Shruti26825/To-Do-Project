@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (checkuser != null) {
         if (checkuser) {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => const AddTask()));
+              context, MaterialPageRoute(builder: (context) =>  AddTask()));
         } else {
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => Signin()));

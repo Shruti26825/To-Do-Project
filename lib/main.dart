@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_project/Add_task.dart';
+import 'package:todo_project/AddTask/Cubits/addcubits.dart';
+import 'package:todo_project/GetAllTodo/Cubits/gettodocubit.dart';
 import 'package:todo_project/SignIn/Cubits/signincubits.dart';
 import 'package:todo_project/SignUp/Cubits/signupcubit.dart';
 import 'package:todo_project/Splash_screen.dart';
@@ -18,11 +19,13 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context)=>SignUpCubit()),
-        BlocProvider(create: (context)=>Signincubits())
+        BlocProvider(create: (context)=>Signincubits()),
+        BlocProvider(create: (context)=>AddtodoCubit()),
+        BlocProvider(create: (_)=>GetTodoCubit()..getTodo())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Todo App',
         theme: ThemeData(
           // This is the theme of your application.
           //
