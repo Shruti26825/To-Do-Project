@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_project/GetAllTodo/Cubits/gettodostates.dart';
 import 'package:http/http.dart' as http;
 import 'package:todo_project/GetAllTodo/Models/gettodomodel.dart';
+import 'package:todo_project/Utils/BaseUrls.dart';
 class GetTodoCubit extends Cubit<GetTodoStates>{
   GetTodoCubit():super(GetTodoInitialStates());
   getTodo()async{
@@ -12,7 +13,7 @@ class GetTodoCubit extends Cubit<GetTodoStates>{
     SharedPreferences prefs=await SharedPreferences.getInstance();
     String? token=prefs.getString("token");
     String? userid=prefs.getString("userid");
-    final response=await http.post(Uri.parse("https://todo-ap-is.vercel.app/todoapp/getalltodos"),
+    final response=await http.post(Uri.parse(Baseurls.getalltask),
     headers: {
       "Content-Type":'application/json',
       'Authorization':token!

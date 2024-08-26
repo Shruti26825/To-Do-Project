@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_project/AddTask/Cubits/addstates.dart';
 import 'package:http/http.dart' as http;
 import 'package:todo_project/AddTask/Models/addmodel.dart';
+import 'package:todo_project/Utils/BaseUrls.dart';
 import 'addevents.dart';
 
 class AddtodoCubit extends Bloc<Addevents, AddTodoStates> {
@@ -15,8 +16,7 @@ class AddtodoCubit extends Bloc<Addevents, AddTodoStates> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString("token");
     String? userid = prefs.getString("userid");
-    final response = await http.post(
-        Uri.parse("https://todo-ap-is.vercel.app/todoapp/addalltodo"),
+    final response = await http.post(Uri.parse(Baseurls.addtask),
         headers: {'Content-Type': 'application/json', 'Authorization': token!},
         body: jsonEncode({"user": userid, "todo": todo}));
     if (response.statusCode == 200) {

@@ -7,6 +7,7 @@ import 'package:todo_project/SignIn/Cubits/signinevents.dart';
 import 'package:todo_project/SignIn/Cubits/signinstates.dart';
 import 'package:http/http.dart' as http;
 import 'package:todo_project/SignIn/Models/signinmodel.dart';
+import 'package:todo_project/Utils/BaseUrls.dart';
 
 class Signincubits extends Bloc<Signinevents, Signinstates> {
   Signincubits() : super(SignInInitialStates());
@@ -14,7 +15,7 @@ class Signincubits extends Bloc<Signinevents, Signinstates> {
   signin(String email, String password) async {
     emit(SignInLoadingStates());
     SharedPreferences prefs=await SharedPreferences.getInstance();
-    final response = await http.post(Uri.parse("https://todo-ap-is.vercel.app/todoapp/signin"),
+    final response = await http.post(Uri.parse(Baseurls.signin),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({"email": email, "password": password}));
     if (response.statusCode == 200) {
