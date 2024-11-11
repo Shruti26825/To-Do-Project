@@ -1,6 +1,6 @@
 class Baseurls{
- static const String signup = "https://todo-apis-six.vercel.app/todoapp/signup";
- static const String signin = "https://todo-apis-six.vercel.app/todoapp/signin";
- static const String addtask = "https://todo-apis-six.vercel.app/todoapp/addalltodo";
- static const String getalltask = "https://todo-apis-six.vercel.app/todoapp/getalltodos";
+ static const String signup = "https://todo-mtmc.vercel.app/todoapp/signup";
+ static const String signin = "https://todo-mtmc.vercel.app/todoapp/signin";
+ static const String addtask = "https://todo-mtmc.vercel.app/todoapp/addtodo";
+ static const String getalltask = "https://todo-mtmc.vercel.app/todoapp/gettodo";
 }
